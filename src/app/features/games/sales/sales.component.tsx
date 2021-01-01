@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import SmartChartHistory from "../+shared/chart-history/smart-chart-history.component";
 import { getSales } from "../../../api/fake-api";
 import { SalesContext } from "./sales-lazy.route";

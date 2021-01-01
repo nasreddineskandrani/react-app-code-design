@@ -1,4 +1,4 @@
-import React, { createContext, memo, useState } from "react";
+import React, { createContext, useState } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { GamesRouting } from "./games.routing";
 
