@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useRef } from "react";
 
@@ -7,11 +7,14 @@ import { AppFeatureA } from "./feature-a";
 import FormHeader from "./+shared/form-header";
 import FormDefectCheck from "./+shared/form-defect-check";
 
-export default ({ name }) => {
+const A = () => {
   let btnRef = useRef();
   const context = useContext(AppFeatureA);
 
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm({
+    defaultValues: context.state.selectedItem
+  });
+  
   const onSubmit = formData => {
     // prevent double submit
     if (btnRef.current) {
@@ -44,18 +47,6 @@ export default ({ name }) => {
       }
     });
   };
-
-  useEffect(() => {
-    console.log("useEffect car", context.state.selectedItem.id);
-    if (
-      context.state.selectedItem.id &&
-      context.state.selectedItem.id.includes("car")
-    ) {
-      reset(context.state.selectedItem);
-    } else {
-      reset({});
-    }
-  }, [context.state.selectedItem.id]);
 
   function clear() {
     console.log("clear");
@@ -103,3 +94,5 @@ export default ({ name }) => {
     </div>
   );
 };
+
+export default A;

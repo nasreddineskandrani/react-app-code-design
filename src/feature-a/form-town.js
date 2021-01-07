@@ -1,15 +1,18 @@
 import React from "react";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 
 import { AppFeatureA } from "./feature-a";
 import FormHeader from "./+shared/form-header";
 import FormDefectCheck from "./+shared/form-defect-check";
 
-export default ({ }) => {
+const A = () => {
   const context = useContext(AppFeatureA);
 
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm({
+    defaultValues: context.state.selectedItem
+  });
+
   const onSubmit = formData => {
     console.log(formData);
     const requestOptions = {
@@ -38,18 +41,6 @@ export default ({ }) => {
       }
     });
   };
-
-  useEffect(() => {
-    console.log("useEffect town", context.state.selectedItem.id);
-    if (
-      context.state.selectedItem.id &&
-      context.state.selectedItem.id.includes("town")
-    ) {
-      reset(context.state.selectedItem);
-    } else {
-      reset({});
-    }
-  }, [context.state.selectedItem, context.state.selectedItem.id, reset]);
 
   function clear() {
     console.log("clear");
@@ -97,3 +88,6 @@ export default ({ }) => {
     </div>
   );
 };
+
+
+export default A;
