@@ -14,3 +14,7 @@ https://github.com/nasreddineskandrani/react-app-code-design/tree/exer2/forms-tr
 
 solution 2: with Formik
 TODO
+
+## Exercice 3
+
+--
