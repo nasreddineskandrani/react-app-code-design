@@ -1,17 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import { AppRouting } from "./app.routing";
-import {
-  QueryClient,
-  QueryClientProvider
-} from "react-query";
 ///
-
-const queryClient = new QueryClient();
 
 export function App() {
   return (
-    <QueryClientProvider client={queryClient}>
       <Router>
         <div>
           <ul>
@@ -28,6 +21,5 @@ export function App() {
           <AppRouting />
         </div>
       </Router>
-    </QueryClientProvider>
   );
 }

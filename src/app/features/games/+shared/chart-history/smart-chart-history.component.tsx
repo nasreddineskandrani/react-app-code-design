@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { useQuery } from "react-query";
 import { GamesContext } from "../../games.component";
 ///
 import ChartHistory from "./chart-history.component";
@@ -15,6 +14,7 @@ export default function SmartChartHistory(props: any) {
   } = state;
 
   // Queries
+  /*
   const { data, isLoading, isFetching } = useQuery(
     [props.id, apiStartDate, apiEndDate, newUploadDoneDate],
     () =>
@@ -46,9 +46,10 @@ export default function SmartChartHistory(props: any) {
   }
 
   if (isLoading || isFetching) return <p>Loading...</p>;
-
+*/
   return (
     <div>
+      {/*
       <ChartHistory
         items={data}
         startDate={state.startDate}
@@ -56,6 +57,7 @@ export default function SmartChartHistory(props: any) {
       />
 
       <button onClick={addPastData}>add past 6 months</button>
+      */}
     </div>
   );
 }
