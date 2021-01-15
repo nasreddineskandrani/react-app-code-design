@@ -15,7 +15,7 @@ export default function SmartChartHistory(props: any) {
   } = state;
 
   // Queries
-  const { data } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     [props.id, apiStartDate, apiEndDate, newUploadDoneDate],
     () =>
       props.fetchData(apiStartDate, apiEndDate).then((newData: any) => {
@@ -44,6 +44,8 @@ export default function SmartChartHistory(props: any) {
 
     setDates((s: any) => ({ ...s, apiStartDate: startDate_, apiEndDate: endDate_ }));
   }
+
+  if (isLoading || isFetching) return <p>Loading...</p>;
 
   return (
     <div>
