@@ -14,7 +14,13 @@ export default function SmartChartHistory(props: any) {
     []
   );
   const range = useSelector(state =>
-    selectRange(state, props.id)
+    selectRange(state, props.id),
+    /*
+    (range: any) => {
+      console.log('this is a kinda map :)', range);
+      return range;
+    }
+    */
   );
 
   const selectNumOfTodosWithIsDone = useMemo(
