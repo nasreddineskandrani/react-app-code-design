@@ -1,5 +1,6 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
+import { call, put, select, takeEvery, takeLatest } from 'redux-saga/effects'
 import { AddPastGameHistoryStr, FetchHistoryErrorStr, FetchHistorySuccessStr, InitGameHistoryStr } from '../../+shared/chart-history/+state/chart-history.actions';
+import { getGamesState } from '../../+state/games.selectors';
 import { getSales } from '../../../../api/fake-api';
 
 const last10Days = 10;
@@ -24,14 +25,15 @@ function* initData(action: any) {
 
 function* addPastData(action: any) {
     try {
-        const end = new Date(action.payload.startDate);
+        let games = yield select(getGamesState);
+        const end = new Date(games['sales'].startDate);
         const start = new Date(end);
         start.setDate(start.getDate() - 180);
         const response = yield getSales(start, end);
         yield put({
             type: FetchHistorySuccessStr, 
             payload: {
-                data: response.data, startDate: start, endDate: action.payload.endDate, id: action.payload.id
+                data: response.data, startDate: start, endDate: games['sales'].endDate, id: action.payload.id
             }
         });
     } catch (e) {

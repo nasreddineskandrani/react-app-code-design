@@ -43,7 +43,7 @@ export default function SmartChartHistory(props: any) {
 
     setDates((s: any) => ({ ...s, apiStartDate: startDate_, apiEndDate: endDate_ }));
     */
-   dispatch(AddPastGameHistory({id: props.id, startDate: range.startDate, endDate: range.endDate }));
+   dispatch(AddPastGameHistory({ id: props.id }));
   }
 
   return (

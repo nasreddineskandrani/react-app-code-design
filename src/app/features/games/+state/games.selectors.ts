@@ -1,5 +1,7 @@
 import { createSelector } from 'reselect'
 
+export const getGamesState = (state: any) => state.games
+
 export const getGamesHistoryPerId = () =>
   createSelector(
     state => state.games,
