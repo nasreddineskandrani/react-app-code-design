@@ -1,16 +1,3 @@
-export const LeaveGamesStr = '[Games] leave page';
+import { createAction } from "@reduxjs/toolkit";
 
-interface LeaveGamesAction {
-  type: typeof LeaveGamesStr;
-  payload: any;
-}
-
-export type GamesActionTypes =
-  LeaveGamesAction
-
-export function LeaveGames(): GamesActionTypes {
-  return {
-    type: LeaveGamesStr,
-    payload: null
-  }
-}
+export const LeaveGames = createAction<any>('[Games] leave page');

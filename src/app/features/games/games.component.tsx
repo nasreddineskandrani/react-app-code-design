@@ -23,7 +23,7 @@ export default function Games() {
 
   useEffect(() => {
     return (() => {
-      dispatch(LeaveGames());
+      dispatch(LeaveGames);
     });
   }, []);
 

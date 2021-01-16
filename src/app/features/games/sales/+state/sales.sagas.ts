@@ -1,5 +1,5 @@
 import { call, put, select, takeEvery, takeLatest } from 'redux-saga/effects'
-import { AddPastGameHistoryStr, FetchHistoryErrorStr, FetchHistorySuccessStr, InitGameHistoryStr } from '../../+shared/chart-history/+state/chart-history.actions';
+import { AddPastGameHistory, FetchHistoryError, FetchHistorySuccess, InitGameHistory } from '../../+shared/chart-history/+state/chart-history.actions';
 import { getGamesState } from '../../+state/games.selectors';
 import { getSales } from '../../../../api/fake-api';
 
@@ -12,13 +12,13 @@ function* initData(action: any) {
         start.setDate(start.getDate() - last10Days);
         const response = yield getSales(start, end);
         yield put({
-            type: FetchHistorySuccessStr, 
+            type: FetchHistorySuccess.type, 
             payload: {
                 data: response.data, startDate: start, endDate: end, id: action.payload.id
             }
         });
     } catch (e) {
-        yield put({type: FetchHistoryErrorStr, message: e.message});
+        yield put({type: FetchHistoryError.type, message: e.message});
     }
 }
 
@@ -31,13 +31,13 @@ function* addPastData(action: any) {
         start.setDate(start.getDate() - 180);
         const response = yield getSales(start, end);
         yield put({
-            type: FetchHistorySuccessStr, 
+            type: FetchHistorySuccess.type, 
             payload: {
                 data: response.data, startDate: start, endDate: games['sales'].endDate, id: action.payload.id
             }
         });
     } catch (e) {
-        yield put({type: FetchHistoryErrorStr, message: e.message});
+        yield put({type: FetchHistoryError.type, message: e.message});
     }
 }
 
@@ -46,8 +46,8 @@ function* addPastData(action: any) {
   Allows concurrent fetches of user.
 */
 function* salesSaga() {
-  yield takeEvery(InitGameHistoryStr, initData);
-  yield takeEvery(AddPastGameHistoryStr, addPastData);
+  yield takeEvery(InitGameHistory.type, initData);
+  yield takeEvery(AddPastGameHistory.type, addPastData);
 }
 
 /*

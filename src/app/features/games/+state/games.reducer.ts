@@ -1,5 +1,6 @@
-import { FetchHistorySuccessStr } from "../+shared/chart-history/+state/chart-history.actions";
-import { LeaveGamesStr } from "./games.actions";
+import { Action, createReducer } from "@reduxjs/toolkit";
+import { FetchHistorySuccess, InitGameHistory } from "../+shared/chart-history/+state/chart-history.actions";
+import { LeaveGames } from "./games.actions";
 
 export interface GamesState {
     [id: string]: {
@@ -10,23 +11,21 @@ export interface GamesState {
 export const initialState: GamesState = {
 };
   
-function gamesReducer(state = initialState, action: any) {
-    switch (action.type) {
-        case FetchHistorySuccessStr: 
-            return {
-                ...state,
-                [action.payload.id]: {
-                    ...state[action.payload.id],
-                    historyData: [...(state[action.payload.id] ? state[action.payload.id].historyData : []), ...action.payload.data],
-                    startDate: action.payload.startDate,
-                    endDate: action.payload.endDate
-                }
-            };
-        case LeaveGamesStr:
-            return {};
-        default:
-            return state;
-    }
-}
+const gamesReducer = createReducer(initialState, (builder) => {
+    builder.addCase(FetchHistorySuccess, (state, action) => {
+        return {
+            ...state,
+            [action.payload.id]: {
+                ...state[action.payload.id],
+                historyData: [...(state[action.payload.id] ? state[action.payload.id].historyData : []), ...action.payload.data],
+                startDate: action.payload.startDate,
+                endDate: action.payload.endDate
+            }
+        };
+    });
+    builder.addCase(LeaveGames, () => {
+        return {};
+    });
+});
   
 export default gamesReducer;
