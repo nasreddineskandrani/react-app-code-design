@@ -4,6 +4,8 @@ import { LeaveGamesStr } from "./games.actions";
 export interface GamesState {
     [id: string]: {
         historyData: any[];
+        startDate: Date;
+        endDate: Date;
     };
 }
 
