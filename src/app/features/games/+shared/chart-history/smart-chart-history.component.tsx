@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGamesHistoryPerId, getRange } from "../../+state/games.selectors";
 import { GamesContext } from "../../games.component";
-import { InitGameHistory } from "./+state/chart-history.actions";
+import { AddPastGameHistory, InitGameHistory } from "./+state/chart-history.actions";
 import ChartHistory from "./chart-history.component";
 ///
 
@@ -43,6 +43,7 @@ export default function SmartChartHistory(props: any) {
 
     setDates((s: any) => ({ ...s, apiStartDate: startDate_, apiEndDate: endDate_ }));
     */
+   dispatch(AddPastGameHistory({id: props.id, startDate: range.startDate, endDate: range.endDate }));
   }
 
   return (

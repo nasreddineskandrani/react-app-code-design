@@ -5,8 +5,6 @@ import createPlotlyComponent from "react-plotly.js/factory";
 const Plot = createPlotlyComponent(Plotly);
  
 export default function ChartHistory(props: any) {
-  console.log('render chart', props);
-
   const [config, setConfig] = useState({} as any);
 
   useEffect(() => {
