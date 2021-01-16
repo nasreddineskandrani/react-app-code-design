@@ -6,9 +6,13 @@ solution 1:
 
 https://github.com/nasreddineskandrani/react-app-code-design/tree/exer1/react-multi-context-provider
 
-solution 2: (WIP)
+solution 2: (deprecated in favor of solution 3)
 
 https://github.com/nasreddineskandrani/react-app-code-design/tree/exer1/react-redux-try
+
+solution 3: (WIP)
+
+https://github.com/nasreddineskandrani/react-app-code-design/tree/exer1/reactjs-toolkit-try
 
 Others options not done yet: 
 
