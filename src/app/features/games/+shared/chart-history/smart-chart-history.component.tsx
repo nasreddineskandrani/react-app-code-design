@@ -32,7 +32,9 @@ export default function SmartChartHistory(props: any) {
   )
 
   useEffect(() => {
-    dispatch(InitGameHistory({id: props.id}));
+    if (!range.startDate) {
+      dispatch(InitGameHistory({id: props.id}));
+    }
   }, []);
 
   function addPastData() {

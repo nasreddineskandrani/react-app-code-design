@@ -1,6 +1,8 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useRouteMatch } from "react-router-dom";
 import { store } from "../../..";
+import { LeaveGames } from "./+state/games.actions";
 import gamesReducer from "./+state/games.reducer";
 import { GamesRouting } from "./games.routing";
 
@@ -9,7 +11,8 @@ store.injectReducer('games', gamesReducer);
 
 export default function Games() {
   console.log("render Games");
-
+  const dispatch = useDispatch();
+  
   let { url } = useRouteMatch();
 
   const [newUploadDoneDate, setNewUploadDoneDate] = useState(new Date());
@@ -17,6 +20,12 @@ export default function Games() {
   function upload() {
     setNewUploadDoneDate(new Date());
   }
+
+  useEffect(() => {
+    return (() => {
+      dispatch(LeaveGames());
+    });
+  }, []);
 
   return (
     <GamesContext.Provider value={[newUploadDoneDate, setNewUploadDoneDate] as any}>

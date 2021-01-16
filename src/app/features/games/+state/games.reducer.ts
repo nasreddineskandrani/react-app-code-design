@@ -1,4 +1,5 @@
 import { FetchHistorySuccessStr } from "../+shared/chart-history/+state/chart-history.actions";
+import { LeaveGamesStr } from "./games.actions";
 
 export interface GamesState {
     [id: string]: {
@@ -21,6 +22,8 @@ function gamesReducer(state = initialState, action: any) {
                     endDate: action.payload.endDate
                 }
             };
+        case LeaveGamesStr:
+            return {};
         default:
             return state;
     }
