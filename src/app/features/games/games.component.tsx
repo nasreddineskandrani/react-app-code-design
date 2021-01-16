@@ -1,8 +1,11 @@
 import React, { createContext, useState } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
+import { store } from "../../..";
+import gamesReducer from "./+state/games.reducer";
 import { GamesRouting } from "./games.routing";
 
 export const GamesContext = createContext([]);
+store.injectReducer('games', gamesReducer);
 
 export default function Games() {
   console.log("render Games");

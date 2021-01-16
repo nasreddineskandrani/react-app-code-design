@@ -1,63 +1,53 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getGamesHistoryPerId, getRange } from "../../+state/games.selectors";
 import { GamesContext } from "../../games.component";
-///
+import { InitGameHistory } from "./+state/chart-history.actions";
 import ChartHistory from "./chart-history.component";
+///
 
 export default function SmartChartHistory(props: any) {
-  const [newUploadDoneDate] = useContext(GamesContext);
-  const [state, setDates] = useContext(props.context);
-  const {
-    startDate,
-    endDate,
-    apiStartDate = startDate,
-    apiEndDate = endDate
-  } = state;
+  const dispatch = useDispatch();
 
-  // Queries
-  /*
-  const { data, isLoading, isFetching } = useQuery(
-    [props.id, apiStartDate, apiEndDate, newUploadDoneDate],
-    () =>
-      props.fetchData(apiStartDate, apiEndDate).then((newData: any) => {
-        console.log('fetchData done');
-        return {
-          ...data,
-          ...newData,
-          data: [...(data?.data || []), ...newData.data]
-        };
-      }),
-      {
-        keepPreviousData: true,
-        refetchOnWindowFocus: false,
-        onSuccess: () => {
-          setDates((s: any) => {
-            return { ...s, startDate: apiStartDate };
-          });
-        }
-      }
+  const selectRange = useMemo(
+    getRange,
+    []
+  );
+  const range = useSelector(state =>
+    selectRange(state, props.id)
   );
 
+  const selectNumOfTodosWithIsDone = useMemo(
+    getGamesHistoryPerId,
+    []
+  )
+  const data = useSelector(state =>
+    selectNumOfTodosWithIsDone(state, props.id)
+  )
+
+  useEffect(() => {
+    dispatch(InitGameHistory({id: props.id}));
+  }, []);
+
   function addPastData() {
+    /*
     const endDate_ = new Date(state.startDate);
     const startDate_ = new Date(endDate_);
     startDate_.setDate(startDate_.getDate() - 180);
 
     setDates((s: any) => ({ ...s, apiStartDate: startDate_, apiEndDate: endDate_ }));
+    */
   }
 
-  if (isLoading || isFetching) return <p>Loading...</p>;
-*/
   return (
     <div>
-      {/*
       <ChartHistory
         items={data}
-        startDate={state.startDate}
-        endDate={state.endDate}
+        startDate={range.startDate}
+        endDate={range.endDate}
       />
 
       <button onClick={addPastData}>add past 6 months</button>
-      */}
     </div>
   );
 }

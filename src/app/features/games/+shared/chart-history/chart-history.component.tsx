@@ -5,22 +5,17 @@ import createPlotlyComponent from "react-plotly.js/factory";
 const Plot = createPlotlyComponent(Plotly);
  
 export default function ChartHistory(props: any) {
+  console.log('render chart', props);
+
   const [config, setConfig] = useState({} as any);
 
-  /*
   useEffect(() => {
-    console.log("On Init", props);
-  }, []);
-  */
-
-  useEffect(() => {
-    console.log('new data', props.items);
-    if (props.items && props.items.data && props.items.data.length > 0) {
+    if (props && props.items && props.items.length > 0) {
       setConfig({
           data: [
             {
-              x: props.items.data.map((v: any) => v.date),
-              y: props.items.data.map((v: any) => v.cash),
+              x: props.items.map((v: any) => v.date),
+              y: props.items.map((v: any) => v.cash),
               type: "scatter",
               mode: "markers"
             }
