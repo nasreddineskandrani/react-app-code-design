@@ -40,7 +40,7 @@ export default function configureStore(preloadedState: any) {
 function createReducer(asyncReducers: any) {
     return combineReducers({
         ...staticReducers,
-        ...asyncReducers
+        ...asyncReducers // https://redux.js.org/recipes/code-splitting
     });
 }
 
