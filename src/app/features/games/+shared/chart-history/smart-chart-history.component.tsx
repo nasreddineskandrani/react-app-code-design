@@ -38,13 +38,6 @@ export default function SmartChartHistory(props: any) {
   }, []);
 
   function addPastData() {
-    /*
-    const endDate_ = new Date(state.startDate);
-    const startDate_ = new Date(endDate_);
-    startDate_.setDate(startDate_.getDate() - 180);
-
-    setDates((s: any) => ({ ...s, apiStartDate: startDate_, apiEndDate: endDate_ }));
-    */
    dispatch(AddPastGameHistory({ id: props.id }));
   }
 
