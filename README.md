@@ -12,7 +12,7 @@ https://github.com/nasreddineskandrani/react-app-code-design/tree/exer1/react-re
 
 solution 3: (WIP)
 
-https://github.com/nasreddineskandrani/react-app-code-design/tree/exer1/reactjs-toolkit-try
+https://github.com/nasreddineskandrani/react-app-code-design/tree/exer1/redux-toolkit-try
 
 Others options not done yet: 
 
