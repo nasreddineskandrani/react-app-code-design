@@ -16,7 +16,7 @@ https://github.com/nasreddineskandrani/react-app-code-design/tree/exer1/redux-to
 
 Others options not done yet: 
 
-https://github.com/pmndrs/jotai OR https://github.com/pmndrs/zustand OR https://recoiljs.org/ OR https://github.com/jamiebuilds/unstated :slightly_smiling_face:
+https://github.com/pmndrs/jotai OR https://github.com/pmndrs/zustand OR https://recoiljs.org/ OR https://github.com/rtk-incubator/rtk-query OR https://github.com/jamiebuilds/unstated :slightly_smiling_face:
 
 ## Exercice 2
 
