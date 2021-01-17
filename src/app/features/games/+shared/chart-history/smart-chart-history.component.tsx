@@ -9,26 +9,17 @@ import ChartHistory from "./chart-history.component";
 export default function SmartChartHistory(props: any) {
   const dispatch = useDispatch();
 
-  const selectRange = useMemo(
-    getRange,
-    []
-  );
   const range = useSelector(state =>
-    selectRange(state, props.id),
+    getRange(state, props.id),
     /*
     (range: any) => {
       console.log('this is a kinda map :)', range);
       return range;
-    }
-    */
+    }*/
   );
 
-  const selectNumOfTodosWithIsDone = useMemo(
-    getGamesHistoryPerId,
-    []
-  )
   const data = useSelector(state =>
-    selectNumOfTodosWithIsDone(state, props.id)
+    getGamesHistoryPerId(state, props.id)
   )
 
   useEffect(() => {
