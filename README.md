@@ -10,7 +10,7 @@ solution 2: (deprecated in favor of solution 3)
 
 https://github.com/nasreddineskandrani/react-app-code-design/tree/exer1/react-redux-try
 
-solution 3: (WIP)
+solution 3:
 
 https://github.com/nasreddineskandrani/react-app-code-design/tree/exer1/redux-toolkit-try
 
