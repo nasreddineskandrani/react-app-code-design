@@ -4,7 +4,7 @@
 
 solution 1:  
 
-https://github.com/nasreddineskandrani/react-app-code-design/tree/exer1/react-multi-context-provider
+https://github.com/nasreddineskandrani/react-app-code-design/tree/exer1/react-query-try
 
 solution 2: (deprecated in favor of solution 3)
 
