@@ -3,8 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import { GogoClass } from './GogoClass';
 import { GogoParentFunc } from './GogoParentFunc';
+import { GogoChild1Func } from './GogoChild1Func';
 
 function App() {
+  console.log('__ render App');
   return (
     <div className="App">
       <header className="App-header">
@@ -24,7 +26,9 @@ function App() {
 
       <GogoClass></GogoClass>
 
-      <GogoParentFunc></GogoParentFunc>
+      <GogoParentFunc>
+        <GogoChild1Func></GogoChild1Func>
+      </GogoParentFunc>
     </div>
   );
 }
