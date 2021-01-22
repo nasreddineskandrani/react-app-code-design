@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { GogoClass } from './GogoClass';
+import { GogoParentFunc } from './GogoParentFunc';
 
 function App() {
   return (
@@ -19,6 +21,10 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <GogoClass></GogoClass>
+
+      <GogoParentFunc></GogoParentFunc>
     </div>
   );
 }
