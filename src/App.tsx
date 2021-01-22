@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import { GogoClass } from './GogoClass';
 import { GogoParentFunc } from './GogoParentFunc';
-import { GogoChild1Func } from './GogoChild1Func';
 
 function App() {
   console.log('__ render App');
@@ -26,9 +25,7 @@ function App() {
 
       <GogoClass></GogoClass>
 
-      <GogoParentFunc>
-        <GogoChild1Func></GogoChild1Func>
-      </GogoParentFunc>
+      <GogoParentFunc></GogoParentFunc>
     </div>
   );
 }

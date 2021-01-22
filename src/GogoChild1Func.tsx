@@ -9,8 +9,8 @@ function useGWithMemo(x: number) {
     }, []) 
 }
 
-export function GogoChild1Func() {
-    console.log('__ render GogoChild1Func');
+export const GogoChild1Func = React.memo(({date}: {date: any}) => {
+    console.log('__ render GogoChild1Func', date);
 
     const [number2, setNumber2] = useState(0);
     const [number3, setNumber3] = useState(0);
@@ -47,4 +47,4 @@ export function GogoChild1Func() {
           <button onClick={() => callback()}>callback</button>
       </div>
     );
-  }
+  });

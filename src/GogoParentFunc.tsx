@@ -10,7 +10,7 @@ function useGWithMemo(x: number) {
     }, []) 
 }
 
-export function GogoParentFunc({children}: { children: React.ReactNode; }) {
+export function GogoParentFunc() {
     console.log('__ render GogoParentFunc');
 
     const [number2, setNumber2] = useState(new Date());
@@ -43,11 +43,11 @@ export function GogoParentFunc({children}: { children: React.ReactNode; }) {
     console.log('__ rendering done GogoParentFunc');
     return (
       <div>
-            {'parent'}
+            {'parent'} 
             <button onClick={() => doSomething()}>udpate</button>
             <button onClick={() => callback()}>callback</button>
 
-            {children}
+            <GogoChild1Func date={number2}></GogoChild1Func>
       </div>
     );
   }
