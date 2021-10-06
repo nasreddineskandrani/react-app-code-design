@@ -5,21 +5,20 @@ import {
   QueryClient,
   QueryClientProvider
 } from "react-query";
+// import { utilsFormat } from "./features/games/games.component";
 ///
 
 const queryClient = new QueryClient();
 
 export function App() {
+  const t = 1; // utilsFormat();
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
         <div>
           <ul>
             <li>
-              <Link to="/home">Home</Link>
-            </li>
-            <li>
-              <Link to="/games">Games</Link>
+              <Link to="/games">go to games {t}</Link>
             </li>
           </ul>
 
